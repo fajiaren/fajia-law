@@ -629,10 +629,17 @@
       var endpoint = window.FAJIA_MESSAGE_ENDPOINT || SITE.messageEndpoint;
       if (endpoint) {
         say("warn", "正在发送…");
+        // 来源标记：按域名区分公开站 / 学员站，收件箱标题即可分辨
+        var siteLabel = /github\.io/i.test(location.hostname) ? "公开站"
+          : (/workbuddy/i.test(location.hostname) ? "学员站" : "本站");
         fetch(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ name: name, contact: contact, message: body, site: "fajia" })
+          body: JSON.stringify({
+            name: name, contact: contact, message: body,
+            site: siteLabel,
+            _subject: "【法家人·" + siteLabel + "留言】" + name
+          })
         }).then(function (r) {
           if (!r.ok) throw new Error("bad status");
           form.reset();

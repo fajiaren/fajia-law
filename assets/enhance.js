@@ -153,9 +153,83 @@
     });
   }
 
+  /* ---------------- 5. SEO：canonical + JSON-LD ----------------
+     动态注入，不改任何页面 HTML / 文章内容：
+     - canonical：告诉爬虫本页唯一正式地址，避免重复内容稀释权重。
+       公开站 URL 已由 sitemap 声明为 https://fajiaren.github.io/fajia-law/... ，
+       这里用 location.href 去掉参数与锚点后的地址作为规范地址。
+     - JSON-LD：给搜索引擎/AI 一段机器可读的结构化数据。
+       文章页用 Article（标题/作者/日期/摘要/图片/正文关键词），
+       非文章页用 WebSite（站点名/简介）。数据全部取自页面已有的 meta 与 DOM，
+       不新增可见内容。 */
+  function canonicalUrl() {
+    return location.href.split("#")[0].split("?")[0];
+  }
+  function metaContent(name) {
+    var el = document.querySelector('meta[name="' + name + '"]') ||
+             document.querySelector('meta[property="' + name + '"]');
+    return el ? (el.getAttribute("content") || "").trim() : "";
+  }
+  function textOf(sel) {
+    var el = document.querySelector(sel);
+    return el ? (el.textContent || "").replace(/\s+/g, " ").trim() : "";
+  }
+  function initSEO() {
+    if (document.querySelector('link[rel="canonical"][data-fj-seo]')) return;
+    var head = document.head;
+
+    var link = document.createElement("link");
+    link.rel = "canonical";
+    link.href = canonicalUrl();
+    link.setAttribute("data-fj-seo", "1");
+    head.appendChild(link);
+
+    var data = {
+      "@context": "https://schema.org",
+      "@type": isArticle ? "Article" : "WebSite",
+      "name": document.title,
+      "url": canonicalUrl(),
+      "inLanguage": "zh-CN",
+      "publisher": { "@type": "Organization", "name": "法家人 · 王天豪律师" }
+    };
+    var desc = metaContent("description") || metaContent("og:description");
+    var author = metaContent("author") || "王天豪";
+    if (desc) data.description = desc;
+    if (isArticle) {
+      data.headline = textOf(".art-title") || metaContent("og:title") || document.title;
+      data.author = { "@type": "Person", "name": author };
+      var pub = textOf(".art-meta span:nth-child(2)");
+      pub = pub.replace(/^发布/, "").trim();
+      var iso = pub.match(/(20\d{2})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
+      if (iso) {
+        data.datePublished = iso[1] + "-" + ("0" + iso[2]).slice(-2) + "-" + ("0" + iso[3]).slice(-2);
+        data.dateModified = data.datePublished;
+      }
+      var ogimg = metaContent("og:image");
+      if (ogimg) data.image = ogimg;
+    }
+    var script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-fj-seo", "1");
+    script.textContent = JSON.stringify(data);
+    head.appendChild(script);
+  }
+
+  /* ---------------- 6. 百度统计（可选，需站点 ID）----------------
+     在 assets/baidu-tongji.js 里填入从 https://tongji.baidu.com 获取的站点 ID。
+     未配置或加载失败时静默跳过，不影响页面。两站各自独立统计。 */
+  function initBaiduTongji() {
+    var s = document.createElement("script");
+    s.src = assetBase + "baidu-tongji.js";
+    s.onerror = function () {};
+    document.head.appendChild(s);
+  }
+
   /* ---------------- 启动 ---------------- */
   function start() {
+    initSEO();
     initStats();
+    initBaiduTongji();
     initBackToTop();
     initShare();
   }
