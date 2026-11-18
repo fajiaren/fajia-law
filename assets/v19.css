@@ -1,0 +1,183 @@
+/* ==========================================================================
+   v19 · 视觉重构覆盖层（最后加载，覆盖历史堆叠样式）
+   目标：① 人像/文字/水墨背景和谐 ② 配色有梯度 ③ 模块介绍与排版突出重点
+   调性：编辑式 / 现代商务 / 单一记忆点（松墨绿→象牙纸梯度 + 陶土强调）
+   ========================================================================== */
+
+:root {
+  /* 更强的明度梯度：深松墨 → 象牙纸，层级更分明 */
+  --v19-deep: #0B2722;
+  --v19-pine: #14463D;
+  --v19-mid:  #2C6A5F;
+  --v19-clay: #B4472C;
+  --v19-gold: #A5823C;
+  --v19-paper:#FBFAF6;
+  --v19-wash: #F2EFE6;
+  --v19-ink:  #16241F;
+  --v19-sub:  #5B6A63;
+  --v19-line: #E4DED0;
+}
+
+/* ---------- 首屏：三者和解 ---------- */
+/* 背景：右侧一大片暖白雾气，把水墨压淡，形成一个干净的「人物留白区」 */
+.hero::before {
+  background:
+    radial-gradient(ellipse 50% 82% at 78% 50%, rgba(251,250,246,.98) 0%, rgba(251,250,246,.92) 34%, rgba(251,250,246,.55) 62%, rgba(251,250,246,0) 86%),
+    linear-gradient(90deg, rgba(251,250,246,.94) 0%, rgba(251,250,246,.78) 40%, rgba(251,250,246,.28) 66%, rgba(251,250,246,0) 84%) !important;
+}
+
+.hero-inner { min-height: min(74vh, 700px); }
+
+/* 人像容器：定位在留白区，宽度自适应，高度完全由图片撑开 —— 全身完整，不再裁头 */
+.founder-card {
+  right: clamp(20px, 5vw, 88px) !important;
+  top: clamp(12px, 2vw, 30px) !important;
+  width: clamp(184px, 17.5vw, 250px) !important;
+}
+/* 柔和的暖白→灰渐变椭圆，作为「落地雾气」承托，与灰调形象照同色系，不是硬边相框 */
+.founder-card::before {
+  content: "";
+  position: absolute; z-index: -2;
+  left: 50%; top: 52%; transform: translate(-50%, -50%);
+  width: 168%; height: 104%;
+  border-radius: 50% 50% 46% 46% / 58% 58% 42% 42%;
+  background: radial-gradient(ellipse at 50% 40%,
+    rgba(236,234,227,.72) 0%, rgba(229,226,218,.44) 44%, rgba(229,226,218,.12) 68%, rgba(229,226,218,0) 82%);
+}
+/* 人物：图片按比例完整显示，头脚都在；轻暖灰滤镜让它和水墨同调 */
+.fc-photo {
+  height: auto !important;
+  overflow: visible !important;
+}
+.fc-photo img {
+  position: relative !important;
+  left: auto !important; bottom: auto !important;
+  display: block !important;
+  width: 100% !important; height: auto !important; max-width: 100% !important;
+  transform: none !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 12px 18px rgba(40,44,38,.16)) saturate(.82) contrast(.97) !important;
+}
+/* 脚下接触阴影：贴地更自然 */
+.fc-photo::before {
+  width: 62% !important; height: 18px !important; bottom: -2% !important;
+  background: radial-gradient(ellipse at center, rgba(58,55,48,.16), rgba(58,55,48,0) 72%) !important;
+}
+/* 署名：细线引出，成为版面元素 */
+.fc-cap { margin-top: .5em !important; }
+.fc-cap b {
+  font-size: clamp(14px, 1.25vw, 18px) !important;
+  letter-spacing: .06em !important;
+  color: var(--v19-deep) !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.95) !important;
+}
+.fc-cap span {
+  font-family: var(--mono, monospace) !important;
+  font-size: .7em !important; letter-spacing: .08em !important;
+  text-transform: uppercase; color: var(--v19-sub) !important;
+}
+
+/* 首屏文字：更聚焦的层级 */
+.hero-eyebrow { color: var(--v19-sub) !important; letter-spacing: .2em !important; }
+.hero-eyebrow i { width: 30px !important; background: var(--v19-clay) !important; opacity: 1 !important; }
+.hero-name { color: var(--v19-deep) !important; }
+.hero-sub em {
+  color: var(--v19-clay) !important;
+  background-image: linear-gradient(180deg, rgba(180,71,44,0) 60%, rgba(180,71,44,.22) 60%) !important;
+}
+.hero-lede b { color: var(--v19-pine) !important; }
+
+/* 数据条：改成深色梯度，制造第一处色彩重心 */
+.hero-strip {
+  background: linear-gradient(100deg, var(--v19-deep), var(--v19-pine)) !important;
+  border-top: 1px solid rgba(165,130,60,.5) !important;
+}
+.hero-strip > div { border-right-color: rgba(255,255,255,.12) !important; }
+.hero-strip b { color: #F4EFE4 !important; }
+.hero-strip span { color: rgba(244,239,228,.66) !important; }
+
+/* ---------- 章节编号与标题：编辑式刻度 ---------- */
+.kicker { color: var(--v19-clay) !important; }
+.kicker .num {
+  color: var(--v19-paper) !important;
+  background: var(--v19-clay);
+  padding: 2px 7px; border-radius: 3px;
+  font-size: 11px; letter-spacing: .06em;
+}
+.kicker::before { background: var(--v19-clay) !important; }
+.h2 { color: var(--v19-ink) !important; letter-spacing: -.01em; }
+.h2 em { color: var(--v19-clay) !important; font-style: normal; }
+.lede { color: var(--v19-sub) !important; }
+
+/* 区块背景：纸色 → 洗色 的梯度，形成节奏 */
+.sec-sand {
+  background: linear-gradient(180deg, var(--v19-paper) 0%, var(--v19-wash) 18%, var(--v19-wash) 84%, var(--v19-paper) 100%) !important;
+}
+
+/* 模块介绍卡：顶部强调线 + 更清晰的标题层级 */
+.about-facts li, .kind-list li, .srv-card {
+  border-top: 2px solid var(--v19-line) !important;
+  transition: border-color .24s ease, transform .24s ease, box-shadow .24s ease;
+}
+.about-facts li:hover, .kind-list li:hover, .srv-card:hover {
+  border-top-color: var(--v19-clay) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px -30px rgba(11,39,34,.55) !important;
+}
+.about-facts li b, .kind-list .k, .srv-top h3 { color: var(--v19-deep) !important; }
+.kind-list .k i {
+  color: var(--v19-paper) !important;
+  background: var(--v19-pine) !important;
+  width: 24px; height: 24px; display: inline-flex;
+  align-items: center; justify-content: center;
+  border-radius: 3px; font-size: 12px; margin-right: 6px;
+}
+
+/* 服务卡：模块小标题用等宽英文，更现代 */
+.srv-top span, .blk-head span {
+  font-family: var(--mono, monospace) !important;
+  letter-spacing: .1em !important; color: var(--v19-gold) !important;
+  font-size: 10.5px !important;
+}
+.srv-items li::before { background: var(--v19-clay) !important; }
+
+/* 按钮：主按钮更实、更现代 */
+.btn-solid {
+  background: linear-gradient(135deg, var(--v19-pine), var(--v19-deep)) !important;
+  border-radius: 5px !important;
+  box-shadow: 0 8px 22px -12px rgba(11,39,34,.7) !important;
+}
+.btn-line { border-radius: 5px !important; }
+
+/* 下一部分分隔条 */
+.pane-next { border-color: var(--v19-clay) !important; }
+.pane-next b { color: var(--v19-deep) !important; }
+
+/* ---------- 文章列表：编号用等宽、选中更明确 ---------- */
+.art-no { font-family: var(--mono, monospace) !important; color: #9AA69F !important; }
+.art-row:hover .art-t { color: var(--v19-clay) !important; }
+
+/* ---------- 页脚：更深的梯度 ---------- */
+.foot, [class*="foot"] {
+  /* 只作用于深色页脚容器，见下方更精确规则 */
+}
+.site-foot, footer.foot, .foot-main {
+  background: linear-gradient(180deg, var(--v19-deep) 0%, #071B17 100%) !important;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 980px) {
+  .hero-inner { min-height: 0 !important; }
+  .founder-card {
+    position: relative !important; right: auto !important; top: auto !important;
+    width: min(300px, 62%) !important; margin: 1.4em auto 0 !important;
+  }
+  .founder-card::before { width: 130%; height: 100%; }
+  .fc-photo { height: auto !important; }
+  .fc-photo img { height: auto !important; bottom: auto !important; }
+  .hero-strip { background: linear-gradient(100deg, var(--v19-deep), var(--v19-pine)) !important; }
+}
+@media (max-width: 560px) {
+  .founder-card { width: 60% !important; }
+  .fc-photo { height: auto !important; }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>法律服务工具箱｜金额计算 · 法规与官网直达｜法家人</title>
+<meta name="description" content="违约金、借款利息、诉讼费、保全费、经济补偿、工伤与人身损害赔偿、养老金、律师费、加班费的计算工具，附计算公式与现行有效的法律依据；另设权威官网直达与实务文书骨架。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/tools.css?v=3">
+</head>
+<body>
+
+<header class="t-top">
+  <div class="t-wrap t-top-in">
+    <a class="t-brand" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 44 44" aria-hidden="true"><rect x="1.5" y="1.5" width="41" height="41" rx="9" fill="none" stroke="#D9BE79" stroke-width="1.3" opacity=".55"/><g stroke="#D9BE79" stroke-width="1.9" stroke-linecap="round" fill="none"><path d="M22 9.2v23.6"/><path d="M10.6 15.6h22.8"/><path d="M10.6 15.6v3.4"/><path d="M33.4 15.6v3.4"/><path d="M6.9 19a3.7 3.7 0 007.4 0"/><path d="M29.7 19a3.7 3.7 0 007.4 0"/><path d="M15.4 33.6h13.2" stroke-width="2.4"/></g><circle cx="22" cy="7.6" r="1.6" fill="#D9BE79"/></svg>
+      <b>法家人</b><i>LEGAL TOOLKIT</i>
+    </a>
+    <span class="t-crumb">服务与业绩 <b>/</b> 法律服务 <b>/</b> 工具箱</span>
+    <a class="t-back" href="index.html#services">← 返回服务与业绩</a>
+  </div>
+</header>
+
+<section class="t-hero">
+  <div class="t-wrap">
+    <p class="t-k">CALCULATE · LOOK UP · DRAFT</p>
+    <h1>把「大概多少」<em>算成一个数</em></h1>
+    <p class="t-lede">
+      争议里最先被问到的往往不是法理，而是数额：能主张多少、要交多少费、判下来大概是多少。
+      这一页把常用的十几项金额算法摊开——每一项都写明<b style="color:#D9BE79">计算公式</b>、<b style="color:#D9BE79">现行依据</b>（法规与司法解释名称、条款）与<b style="color:#D9BE79">实务指引</b>，
+      另附权威官网直达与常用文书骨架。全部免费，不需要注册。
+    </p>
+    <div class="t-hero-tabs">
+      <button class="t-hero-tab is-on" type="button" data-jump="#calc">金额计算</button>
+      <button class="t-hero-tab" type="button" data-jump="#links">法规与官网直达</button>
+      <button class="t-hero-tab" type="button" data-jump="#practical">期间与文书</button>
+      <button class="t-hero-tab" type="button" data-jump="#limits">使用说明</button>
+    </div>
+  </div>
+</section>
+
+<section class="t-sec" id="calc">
+  <div class="t-wrap">
+    <div class="t-head"><h2>金额计算</h2><span>12 项 · 点标题展开</span></div>
+    <p class="t-sub">
+      数字可以改，结果即时更新。所有默认值只是常见场景的示例，不是对你个案的判断：
+      实际裁判还要看合同约定、证据与当地口径。涉及具体案件，建议把算出来的数拿去和律师对一遍。
+    </p>
+    <div class="t-cal-grid" id="cal-list"></div>
+  </div>
+</section>
+
+<section class="t-sec alt" id="links">
+  <div class="t-wrap">
+    <div class="t-head"><h2>法规与官网直达</h2><span>按用途分类 · 均为官方站点</span></div>
+    <p class="t-sub">
+      查法条、查案例、查企业、查执行，各有各的官方入口。下面按「要查什么」分类，直接点开即可；
+      第三方转载站一律不收，避免拿到过期文本。
+    </p>
+    <div class="t-links" id="link-box"></div>
+    <p class="t-note">
+      <b>提示</b>　政府网站域名与栏目偶有调整。若某个链接打不开，可在该站首页检索栏目名，或用站内的「搜索」定位。
+      裁判文书网、庭审公开网在部分时段需要登录或验证码，这是平台规则，不是链接失效。
+    </p>
+  </div>
+</section>
+
+<section class="t-sec" id="practical">
+  <div class="t-wrap">
+    <div class="t-head"><h2>期间与文书</h2><span>算日子 · 抄骨架</span></div>
+    <p class="t-sub">打官司输在期限上的案子，比输在道理上的多。先算清日子，再动笔。</p>
+    <div class="t-mini" id="mini-box"></div>
+
+    <div class="t-head" style="margin-top:44px"><h2 style="font-size:20px">常用文书骨架</h2><span>可复制 · 可打印</span></div>
+    <p class="t-sub">骨架只给结构，事实与请求要自己填。写之前先想清楚：要什么、凭什么、证据在哪。</p>
+    <div id="doc-box"></div>
+  </div>
+</section>
+
+<section class="t-sec alt" id="limits">
+  <div class="t-wrap">
+    <div class="t-head"><h2>使用说明与边界</h2><span>请先读这一段</span></div>
+    <div class="t-mini">
+      <div class="t-mini-card">
+        <h3>这些数字是什么</h3>
+        <p class="d">
+          是「按现行法条与司法解释的通用算法得出的参考值」。诉讼费、保全费属法定标准，误差主要来自程序选择；
+          赔偿类金额受证据、过错比例、当地统计口径影响，浮动可能很大。
+        </p>
+      </div>
+      <div class="t-mini-card">
+        <h3>这些数字不是什么</h3>
+        <p class="d">
+          不是法律意见，也不是对结果的承诺。同一组事实，换一个请求权基础、换一个法院，数额都会变。
+          涉及起诉、应诉、谈判金额的最终确定，请让承办律师看过材料再定。
+        </p>
+      </div>
+      <div class="t-mini-card">
+        <h3>数据口径</h3>
+        <p class="d">
+          「上年度城镇居民人均可支配收入」「职工月平均工资」「一年期 LPR」等参数逐年调整，
+          页内默认值标注了年份，请按你所在省份与最新统计公报替换后再算。
+        </p>
+      </div>
+      <div class="t-mini-card">
+        <h3>遇到算不出来的</h3>
+        <p class="d">
+          跨法域（涉外、港澳台）、多项请求权竞合、需要审计或鉴定的，通常不适合用固定公式。
+          可以在「咨询与合作」里留言说明情况。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="t-foot">
+  <div class="t-wrap">
+    <p>法家人 · 法律服务工具箱　|　<a href="index.html">返回首页</a>　|　<a href="index.html#contact">咨询与合作</a></p>
+    <p style="color:#93A2AE;margin-top:6px">本页仅供学习与实务参考，不构成对特定人的正式法律意见；法规与统计口径以发布机关最新文本为准。</p>
+  </div>
+</footer>
+
+<script src="assets/legal-tools.js?v=3"></script>
+</body>
+</html>

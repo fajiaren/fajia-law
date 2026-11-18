@@ -1,0 +1,74 @@
+/* ==========================================================================
+   v19 · 阅读页配色梯度与排版强化（文章页 + 资料页共享）
+   在原有 article.css / lib.css 之后加载，强化层次、突出重点、统一强调色。
+   ========================================================================== */
+:root {
+  --v19-deep: #0B2722;
+  --v19-pine: #14463D;
+  --v19-clay: #B4472C;
+  --v19-gold: #A5823C;
+  --v19-ink:  #16241F;
+  --v19-sub:  #5B6A63;
+  --v19-wash: #F2EFE6;
+}
+
+/* ---------------- 文章页 ---------------- */
+.art-title, .doc-name, .doc-head h1 {
+  color: var(--v19-deep) !important;
+  letter-spacing: -.01em;
+}
+.art-kicker, .doc-kicker, .crumb { color: var(--v19-gold) !important; letter-spacing: .08em !important; }
+.art-sub, .art-meta, .doc-meta { color: var(--v19-sub) !important; }
+
+/* 正文首段与标题强调：让重点跳出来 */
+.art-body > p.sec-h, .art-body > h2, .art-body > h3,
+.doc-sheet h2, .doc-sheet h3, .doc-sheet h4 {
+  color: var(--v19-deep) !important;
+  border-left: 3px solid var(--v19-clay);
+  padding-left: .6em;
+}
+.art-body strong, .art-body b, .doc-sheet strong {
+  color: var(--v19-deep) !important;
+  background: linear-gradient(180deg, rgba(164,130,60,0) 62%, rgba(164,130,60,.16) 62%);
+}
+.art-body a, .doc-sheet a { color: var(--v19-clay) !important; }
+
+/* 正文行高与段距：更易读 */
+.art-body p, .doc-sheet p.doc-p { line-height: 1.95; }
+
+/* 表格：表头深墨绿梯度 + 顶部强调线 */
+.doc-tbl th, .doc-tbl thead th {
+  background: linear-gradient(100deg, var(--v19-deep), var(--v19-pine)) !important;
+  color: #F4EFE4 !important;
+  letter-spacing: .04em;
+}
+.doc-tbl, .doc-tblwrap { border-top: 2px solid var(--v19-clay) !important; }
+.doc-tbl tbody tr:nth-child(even) { background: rgba(242,239,230,.5) !important; }
+.doc-tbl tbody tr:hover { background: rgba(180,71,44,.055) !important; }
+
+/* 导航/相关卡片：顶部强调线 */
+.author-card, .art-related, .doc-notes, .rel-list li {
+  border-top: 2px solid var(--v19-line, #E4DED0) !important;
+  transition: border-color .24s ease;
+}
+.author-card:hover, .art-related:hover, .doc-notes:hover, .rel-list li:hover {
+  border-top-color: var(--v19-clay) !important;
+}
+.rel-h, .anav-cta { color: var(--v19-clay) !important; }
+
+/* 目录/页码等小字统一 */
+.art-no, .pn, .doc-btn { font-family: var(--mono, monospace) !important; }
+
+/* ---------------- 资料页 ---------------- */
+.lb-kicker, .lb-crumb { color: var(--v19-gold) !important; letter-spacing: .06em !important; }
+.lb-main h1, .lb-doc h2, .lb-doc h3 { color: var(--v19-deep) !important; }
+.lb-doc h2, .lb-doc h3 { border-left: 3px solid var(--v19-clay); padding-left: .6em; }
+.lb-note { border-left: 3px solid var(--v19-gold) !important; background: var(--v19-wash) !important; }
+.lb-doc strong, .lb-doc b { color: var(--v19-deep) !important; }
+.lb-siblings { background: #FBF8F1 !important; border-top: 2px solid var(--v19-clay) !important; }
+.ls-chips a.on { background: var(--v19-pine) !important; border-color: var(--v19-pine) !important; }
+.lb-bar { border-bottom: 1px solid var(--v19-line, #E4DED0) !important; }
+
+/* 翻页器控件 */
+.deck-ctrl button, .deck-nav button { transition: all .2s ease; }
+.deck-ctrl button:hover, .deck-nav button:hover { background: var(--v19-pine) !important; color: #FFF !important; }

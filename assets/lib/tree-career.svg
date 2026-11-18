@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 1180" width="1680" height="1180" font-family="Songti SC, Noto Serif SC, serif">
+<defs>
+<linearGradient id="rootg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1C4A42"/><stop offset="1" stop-color="#0E2C28"/></linearGradient>
+<pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#D8D0BE" opacity=".55"/></pattern>
+</defs>
+<rect width="1680" height="1180" fill="#FBFAF6"/>
+<rect width="1680" height="1180" fill="url(#dots)"/>
+<text x="74" y="86" font-size="40" font-weight="700" fill="#14201D" letter-spacing="2">律师职业认知树</text>
+<text x="74" y="122" font-size="16" fill="#A5823C" letter-spacing="6">CAREER MAP OF A CHINESE LAWYER · v14</text>
+<line x1="74" y1="142" x2="1606" y2="142" stroke="#E6E0D1" stroke-width="1"/>
+<path d="M264 234 H274 V234 H300" fill="none" stroke="#E6E0D1" stroke-width="1.2"/>
+<circle cx="274" cy="234" r="3.4" fill="#A5823C"/>
+<text x="300" y="208" font-size="13" fill="#A5823C" letter-spacing="2">一 · 这个职业卖什么</text>
+<text x="300" y="242" font-size="24" font-weight="700" fill="#14201D">职业本质</text>
+<circle cx="574" cy="201" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="206" font-size="16.5" fill="#6A7873">把法律当工具，替别人处理「权利—义务—风险」</text>
+<circle cx="574" cy="231" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="236" font-size="16.5" fill="#6A7873">客户买的不是条文，是确定性与退路</text>
+<circle cx="574" cy="261" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="266" font-size="16.5" fill="#6A7873">三种身份：代理人 / 顾问 / 项目管理者</text>
+<line x1="300" y1="316" x2="1606" y2="316" stroke="#E6E0D1" stroke-dasharray="2 6"/>
+<path d="M264 384 H274 V384 H300" fill="none" stroke="#E6E0D1" stroke-width="1.2"/>
+<circle cx="274" cy="384" r="3.4" fill="#A5823C"/>
+<text x="300" y="358" font-size="13" fill="#A5823C" letter-spacing="2">二 · 怎么进来</text>
+<text x="300" y="392" font-size="24" font-weight="700" fill="#14201D">准入与成长</text>
+<circle cx="574" cy="351" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="356" font-size="16.5" fill="#6A7873">法考 → 一年实习 → 执业证</text>
+<circle cx="574" cy="381" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="386" font-size="16.5" fill="#6A7873">0–3 年 手艺期：跟案、检索、写作</text>
+<circle cx="574" cy="411" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="416" font-size="16.5" fill="#6A7873">3–5 年 专业期：独立承办一个门类</text>
+<circle cx="574" cy="441" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="446" font-size="16.5" fill="#6A7873">5 年以后 经营期：带团队、拓客、定方向</text>
+<line x1="300" y1="466" x2="1606" y2="466" stroke="#E6E0D1" stroke-dasharray="2 6"/>
+<path d="M264 534 H274 V534 H300" fill="none" stroke="#E6E0D1" stroke-width="1.2"/>
+<circle cx="274" cy="534" r="3.4" fill="#A5823C"/>
+<text x="300" y="508" font-size="13" fill="#A5823C" letter-spacing="2">三 · 干什么</text>
+<text x="300" y="542" font-size="24" font-weight="700" fill="#14201D">业务地图</text>
+<circle cx="574" cy="501" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="506" font-size="16.5" fill="#6A7873">诉裁：民事诉讼 / 行政 / 刑事 / 刑民交叉</text>
+<circle cx="574" cy="531" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="536" font-size="16.5" fill="#6A7873">仲裁：国际商事 / 国内 / 行业（劳动、建工、金融）</text>
+<circle cx="574" cy="561" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="566" font-size="16.5" fill="#6A7873">关联：律师函、谈判调解、强制执行</text>
+<circle cx="574" cy="591" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="596" font-size="16.5" fill="#6A7873">非诉：交易型 / 合规型 / 管理型 / 代办型</text>
+<line x1="300" y1="616" x2="1606" y2="616" stroke="#E6E0D1" stroke-dasharray="2 6"/>
+<path d="M264 684 H274 V684 H300" fill="none" stroke="#E6E0D1" stroke-width="1.2"/>
+<circle cx="274" cy="684" r="3.4" fill="#A5823C"/>
+<text x="300" y="658" font-size="13" fill="#A5823C" letter-spacing="2">四 · 靠什么</text>
+<text x="300" y="692" font-size="24" font-weight="700" fill="#14201D">六项底层能力</text>
+<circle cx="574" cy="651" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="656" font-size="16.5" fill="#6A7873">市场营销 · 调查研究 · 文书写作</text>
+<circle cx="574" cy="681" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="686" font-size="16.5" fill="#6A7873">表达沟通 · 控场应变 · 行业洞察</text>
+<line x1="300" y1="766" x2="1606" y2="766" stroke="#E6E0D1" stroke-dasharray="2 6"/>
+<path d="M264 834 H274 V834 H300" fill="none" stroke="#E6E0D1" stroke-width="1.2"/>
+<circle cx="274" cy="834" r="3.4" fill="#A5823C"/>
+<text x="300" y="808" font-size="13" fill="#A5823C" letter-spacing="2">五 · 受什么约束</text>
+<text x="300" y="842" font-size="24" font-weight="700" fill="#14201D">四层规范</text>
+<circle cx="574" cy="801" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="806" font-size="16.5" fill="#6A7873">法律层：《律师法》与诉讼法执业条款</text>
+<circle cx="574" cy="831" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="836" font-size="16.5" fill="#6A7873">规章层：执业、收费、档案管理办法</text>
+<circle cx="574" cy="861" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="866" font-size="16.5" fill="#6A7873">行业层：律协规范、纪律处分、利益冲突</text>
+<circle cx="574" cy="891" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="896" font-size="16.5" fill="#6A7873">所内层：立案、用印、档案、财务</text>
+<line x1="300" y1="916" x2="1606" y2="916" stroke="#E6E0D1" stroke-dasharray="2 6"/>
+<path d="M264 984 H274 V984 H300" fill="none" stroke="#E6E0D1" stroke-width="1.2"/>
+<circle cx="274" cy="984" r="3.4" fill="#A5823C"/>
+<text x="300" y="958" font-size="13" fill="#A5823C" letter-spacing="2">六 · 往哪走</text>
+<text x="300" y="992" font-size="24" font-weight="700" fill="#14201D">分化与转型</text>
+<circle cx="574" cy="951" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="956" font-size="16.5" fill="#6A7873">专业深耕：劳动 / 公司 / 涉外 / 知产 / 建工</text>
+<circle cx="574" cy="981" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="986" font-size="16.5" fill="#6A7873">平台选择：大所 / 精品所 / 公司制 / 独立</text>
+<circle cx="574" cy="1011" r="2.6" fill="#2C6A5F"/>
+<text x="590" y="1016" font-size="16.5" fill="#6A7873">转型：法务、仲裁员、调解员、教学、公职</text>
+<rect x="74" y="200" width="190" height="840" rx="2" fill="url(#rootg)"/>
+<text x="104" y="274" font-size="30" font-weight="700" fill="#FBFAF6" letter-spacing="6">律</text>
+<text x="104" y="318" font-size="30" font-weight="700" fill="#FBFAF6" letter-spacing="6">师</text>
+<text x="104" y="362" font-size="30" font-weight="700" fill="#FBFAF6" letter-spacing="6">这</text>
+<text x="104" y="406" font-size="30" font-weight="700" fill="#FBFAF6" letter-spacing="6">门</text>
+<text x="104" y="450" font-size="30" font-weight="700" fill="#FBFAF6" letter-spacing="6">手</text>
+<text x="104" y="494" font-size="30" font-weight="700" fill="#FBFAF6" letter-spacing="6">艺</text>
+<text x="96" y="536" font-size="12" fill="#C9A96A" letter-spacing="3">PROFESSION</text>
+<text x="74" y="1140" font-size="13" fill="#A5823C">法家人 · 王天豪律师　|　按「是什么 → 怎么进来 → 干什么 → 靠什么 → 受什么约束 → 往哪走」六层排列，每一层对应律师学院的一门课</text>
+</svg>

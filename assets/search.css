@@ -1,0 +1,160 @@
+/* ==========================================================================
+   v19 · 全站检索组件样式（命令面板 + 触发按钮）
+   独立文件，首页/文章页/资料页共用。设计语言：象牙纸 + 松墨绿 + 陶土强调。
+   ========================================================================== */
+
+/* 触发按钮：固定于右上，紧挨语言按钮左侧 */
+.fs-trigger {
+  position: fixed; z-index: 120;
+  right: 106px; top: 14px;
+  display: inline-flex; align-items: center; gap: .42em;
+  height: 34px; padding: 0 .55em 0 .7em;
+  border: 1px solid rgba(90,88,82,.28); border-radius: 999px;
+  background: rgba(251,250,246,.94); backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #6B6355; font-size: 12px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(40,38,33,.10);
+  transition: border-color .2s, color .2s, background .2s;
+}
+.fs-trigger:hover { border-color: var(--clay, #B24E2E); color: var(--clay, #B24E2E); background: #FFF; }
+.fs-trigger svg { width: 15px; height: 15px; }
+.fs-trigger kbd {
+  font-family: var(--mono, monospace); font-size: 10px; font-weight: 500;
+  padding: 1px 5px; border: 1px solid rgba(90,88,82,.22); border-radius: 4px;
+  color: #8C8474; background: rgba(0,0,0,.025);
+}
+body.fs-open { overflow: hidden; }
+
+/* 遮罩 + 面板 */
+.fs-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: clamp(48px, 10vh, 120px) 16px 24px;
+  background: rgba(20, 28, 25, .42);
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+  animation: fs-fade .18s ease;
+}
+@keyframes fs-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.fs-panel {
+  width: min(660px, 100%);
+  background: #FBFAF6;
+  border: 1px solid var(--line-2, #D6CEBB);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px -30px rgba(14, 30, 26, .55), 0 0 0 1px rgba(255,255,255,.6) inset;
+  overflow: hidden;
+  animation: fs-rise .24s cubic-bezier(.22,.61,.36,1);
+}
+@keyframes fs-rise { from { transform: translateY(-12px) scale(.99); opacity: .6; } to { transform: none; opacity: 1; } }
+
+/* 顶部输入区：松墨绿，单一记忆点 */
+.fs-top {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #1C4A42, #0E2C28);
+  color: #F4EFE4;
+}
+.fs-top .fs-ico { width: 21px; height: 21px; flex: 0 0 auto; color: #C9A96A; }
+.fs-top input {
+  flex: 1; min-width: 0;
+  background: none; border: 0; outline: 0;
+  color: #FBF7EE; font-family: var(--sans); font-size: 16px;
+  letter-spacing: .01em;
+}
+.fs-top input::placeholder { color: rgba(244,239,228,.55); }
+.fs-top input::-webkit-search-cancel-button { filter: invert(1); opacity: .55; }
+.fs-top kbd {
+  font-family: var(--mono, monospace); font-size: 10px;
+  padding: 3px 7px; border: 1px solid rgba(244,239,228,.3); border-radius: 5px;
+  color: rgba(244,239,228,.7);
+}
+
+/* 常见主题快捷标签 */
+.fs-chips {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  padding: 14px 18px 6px;
+}
+.fs-chips::before {
+  content: "常用主题"; font-size: 10.5px; letter-spacing: .12em;
+  color: #968C79; align-self: center; margin-right: 2px;
+}
+body.fj-en .fs-chips::before { content: "POPULAR"; }
+.fs-chip {
+  padding: 4px 11px; border-radius: 999px;
+  border: 1px solid var(--line-2, #D6CEBB); background: #FFF;
+  color: #5E574A; font-size: 12px; cursor: pointer;
+  transition: all .18s;
+}
+.fs-chip:hover { border-color: var(--clay, #B24E2E); color: var(--clay, #B24E2E); background: #FDF4EF; }
+
+.fs-stat {
+  min-height: 18px; padding: 4px 20px 6px;
+  font-size: 11px; letter-spacing: .08em; color: #968C79;
+}
+
+/* 结果列表 */
+.fs-list { max-height: min(52vh, 460px); overflow-y: auto; padding: 0 10px 10px; }
+.fs-list::-webkit-scrollbar { width: 7px; }
+.fs-list::-webkit-scrollbar-thumb { background: var(--line-2, #D6CEBB); border-radius: 8px; }
+
+.fs-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 10px; border-radius: 8px;
+  color: var(--ink-2, #3B4945); text-decoration: none;
+  border: 1px solid transparent;
+}
+.fs-item + .fs-item { margin-top: 2px; }
+.fs-item.on, .fs-item:hover { background: #F3EFE4; border-color: var(--line, #E6E0D1); }
+
+.fs-kind {
+  flex: 0 0 auto; min-width: 40px; text-align: center;
+  padding: 3px 7px; border-radius: 4px;
+  font-size: 10.5px; letter-spacing: .06em;
+  color: #1C4A42; background: rgba(28,74,66,.09);
+}
+.fs-kind.k-article { color: #1C4A42; background: rgba(28,74,66,.10); }
+.fs-kind.k-album  { color: #8A6A22; background: rgba(165,130,60,.13); }
+.fs-kind.k-college,
+.fs-kind.k-course { color: #8A3D28; background: rgba(178,78,46,.11); }
+.fs-kind.k-outline,
+.fs-kind.k-lib     { color: #4A5E7A; background: rgba(58,82,120,.10); }
+
+.fs-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.fs-main b {
+  font-weight: 600; font-size: 13.6px; line-height: 1.4;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  color: var(--ink, #14201D);
+}
+.fs-main em {
+  font-style: normal; font-size: 11px; color: #968C79;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.fs-item mark { background: rgba(192,89,58,.18); color: #9C3D24; border-radius: 2px; padding: 0 1px; }
+.fs-item > svg { width: 14px; height: 14px; flex: 0 0 auto; color: #B7AE9C; }
+.fs-item.on > svg { color: var(--clay, #B24E2E); }
+
+.fs-empty { padding: 34px 16px; text-align: center; color: #968C79; font-size: 13px; }
+
+/* 底部操作提示 */
+.fs-foot {
+  display: flex; align-items: center; gap: 16px;
+  padding: 10px 18px; border-top: 1px solid var(--line, #E6E0D1);
+  background: #F7F3E9; font-size: 10.5px; color: #8C8474;
+}
+.fs-foot span { display: inline-flex; align-items: center; gap: 5px; }
+.fs-foot kbd {
+  font-family: var(--mono, monospace); font-size: 10px;
+  min-width: 18px; text-align: center;
+  padding: 1px 4px; border: 1px solid var(--line-2, #D6CEBB); border-radius: 4px;
+  background: #FFF; color: #6B6355;
+}
+.fs-foot .fs-brand { margin-left: auto; letter-spacing: .14em; color: #A79C86; font-weight: 600; }
+
+@media (max-width: 560px) {
+  .fs-trigger { right: 12px; top: 52px; height: 30px; }
+  .fs-trigger kbd { display: none; }
+  .fs-overlay { padding: 8px; }
+  .fs-panel { border-radius: 12px; }
+  .fs-top { padding: 13px 15px; }
+  .fs-top input { font-size: 15px; }
+}
