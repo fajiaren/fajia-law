@@ -24,8 +24,10 @@
   try {
     reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   } catch (e2) { }
+  /* ?intro=1 强制播放一次（便于检查动画与截图） */
+  var force = /[?&]intro=1/.test(location.search);
   var bypass = /[?&]nointro=1/.test(location.search) ||
-    seen || reduce ||
+    (!force && (seen || reduce)) ||
     (hash && hash !== "about" && hash !== "home");
   if (bypass) {
     if (el.parentNode) el.parentNode.removeChild(el);
