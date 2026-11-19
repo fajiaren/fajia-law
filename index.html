@@ -11,11 +11,24 @@
 <meta property="og:description" content="企业商事与劳动人事法律服务｜涉外法律事务｜公益法律知识库">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=41">
+<script>
+/* 入口守卫：关闭浏览器的滚动位置恢复，保证无论从书签、历史还是分享链接进入，
+   首屏都从「关于网站」顶端开始，而不是上次停留的位置。*/
+(function () {
+  try {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    sessionStorage.setItem("fj-entry", "1");
+    window.addEventListener("load", function () {
+      if (!location.hash) { try { window.scrollTo(0, 0); } catch (e) { } }
+    });
+  } catch (e) { }
+})();
+</script>
+<link rel="stylesheet" href="assets/style.css?v=42">
 <link rel="stylesheet" href="assets/v19.css?v=37">
 <link rel="stylesheet" href="assets/search.css?v=37">
 <link rel="stylesheet" href="assets/v22.css?v=38">
-<link rel="preload" as="image" href="assets/img/themis.jpg">
+<link rel="preload" as="image" href="assets/img/themis.webp" fetchpriority="high">
 <link rel="stylesheet" href="assets/intro.css?v=40">
 <link rel="stylesheet" href="assets/ui-art.css?v=1">
 <script type="application/ld+json">
@@ -30,12 +43,34 @@
   "address": { "@type": "PostalAddress", "addressLocality": "杭州市", "addressRegion": "浙江省", "addressCountry": "CN" }
 }
 </script>
-<script src="assets/en-map.js?v=30" defer></script>
+<script>
+/* 英译表按需加载：中文界面不必先下载这份 ~300KB 词典，改在空闲时段取；
+   已选英文或 ?lang=en 时同步载入，保证首屏就是英文。*/
+(function () {
+  var en = false;
+  try { en = localStorage.getItem("fj-lang") === "en" || /[?&]lang=en/.test(location.search); } catch (e) { }
+  function load() {
+    if (window.FJ_EN) return;
+    var s = document.createElement("script");
+    s.src = "assets/en-map.js?v=21";
+    s.async = true;
+    s.onload = function () {
+      if (window.__fjSetEN) window.__fjSetEN(window.FJ_EN);
+      if (window.__fjRebuildSearch) window.__fjRebuildSearch();
+    };
+    document.head.appendChild(s);
+  }
+  window.fjLoadEN = load;
+  if (en) document.write('<script src="assets/en-map.js?v=21"><\/script>');
+  else if ("requestIdleCallback" in window) requestIdleCallback(load, { timeout: 3200 });
+  else window.addEventListener("load", function () { setTimeout(load, 2000); });
+})();
+</script>
 <script src="assets/search-index.js?v=32" defer></script>
 <script src="assets/i18n-data.js?v=36" defer></script>
 <script src="assets/i18n.js?v=30" defer></script>
-<script src="assets/search.js?v=31" defer></script>
-<script src="assets/intro.js?v=5" defer></script>
+<script src="assets/search.js?v=32" defer></script>
+<script src="assets/intro.js?v=6" defer></script>
 </head>
 <body class="page-body">
 
@@ -48,7 +83,7 @@
     <div class="fi-room"></div>
     <div class="fi-figure">
       <div class="fi-photo">
-        <img class="fi-themis" src="assets/img/themis.jpg" alt="">
+        <img class="fi-themis" src="assets/img/themis.webp" alt="" width="900" height="1350" fetchpriority="high" decoding="async">
       </div>
     </div>
   </div>
@@ -122,7 +157,7 @@
         <div class="hero-inner">
           <!-- 獬豸：首页专属虚化水印（与形象照同框） -->
           <div class="hero-xiezhi" aria-hidden="true">
-            <img src="assets/img/xiezhi.png" alt="">
+            <img src="assets/img/xiezhi.webp" alt="" width="560" height="518" decoding="async">
           </div>
 
           <div class="hero-main">
@@ -161,7 +196,7 @@
 
           <figure class="founder-card" id="founder-card">
             <div class="fc-photo">
-              <img src="assets/img/portrait-hero.png" alt="王天豪律师职业形象照">
+              <img src="assets/img/portrait-hero.webp" alt="王天豪律师职业形象照" width="375" height="664" fetchpriority="high" decoding="async">
             </div>
             <figcaption class="fc-cap">
               <b>网站创始人：王天豪 律师</b>
@@ -183,7 +218,7 @@
           <div class="about-top">
             <div class="about-lead">
               <p class="kicker"><span class="num">01</span> 关于网站</p>
-              <figure class="ui-art ui-art-about" aria-hidden="true"><img src="assets/img/art-about.jpg" alt="" loading="lazy"></figure>
+              <figure class="ui-art ui-art-about" aria-hidden="true"><img src="assets/img/art-about.webp" alt="" width="720" height="720" loading="lazy" decoding="async"></figure>
               <h2 class="h2">一个可以自查、<br><em>能直接用</em>的知识库</h2>
               <p class="about-quote">
                 只回答你真正关心的问题：这事怎么定性、第一步做什么、这句话写进合同有什么后果。
@@ -340,7 +375,7 @@
           <p class="lede">
             主打企业商事和劳动人事，兼做涉外。事前帮你把交易和用工结构设计好，事后帮你解决争议。
           </p>
-          <figure class="ui-art ui-art-service" aria-hidden="true"><img src="assets/img/art-toolbox.jpg" alt="" loading="lazy"></figure>
+          <figure class="ui-art ui-art-service" aria-hidden="true"><img src="assets/img/art-toolbox.webp" alt="" width="720" height="720" loading="lazy" decoding="async"></figure>
 
           <div class="blk-head">
             <h3>法律服务</h3>
@@ -572,7 +607,7 @@
         <div class="wrap" style="text-align:center;padding:80px 20px">
           <p class="kicker"><span class="num">04</span> 法家人学院</p>
           <h2 class="h2">学院课程 · 学员专属</h2>
-          <figure class="ui-art ui-art-academy" style="float:none;width:min(66%,290px);margin:26px auto 22px;transform:rotate(.8deg)" aria-hidden="true"><img src="assets/img/art-academy.jpg" alt="" loading="lazy"></figure>
+          <figure class="ui-art ui-art-academy" style="float:none;width:min(66%,290px);margin:26px auto 22px;transform:rotate(.8deg)" aria-hidden="true"><img src="assets/img/art-academy.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></figure>
           <p style="max-width:560px;margin:0 auto 24px;line-height:2;opacity:.75">
             法家人学院的加密课程与内部资料，仅向已授权学员开放。<br>
             如需了解学院课程或申请学习资格，请通过下方「咨询与合作」留言联系。
@@ -1009,6 +1044,6 @@
 
 <script src="data.js?v=37"></script>
 <script src="assets/library.js?v=32"></script>
-<script src="assets/app.js?v=30"></script>
+<script src="assets/app.js?v=31"></script>
 </body>
 </html>

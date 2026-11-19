@@ -12,9 +12,20 @@
   var root = document.documentElement;
   var skip = document.getElementById("fj-intro-skip");
 
-  /* 深链（#articles 等）与调试参数直接跳过开场 */
+  /* 深链（#articles 等）、调试参数、同一会话已看过、系统要求减少动效 —— 都直接跳过开场，
+     让回访的人一点开就是首页，不必每次都等 4 秒多的过场。 */
   var hash = location.hash.replace("#", "");
+  var seen = false;
+  try {
+    seen = sessionStorage.getItem("fj-intro-seen") === "1";
+    sessionStorage.setItem("fj-intro-seen", "1");
+  } catch (e) { }
+  var reduce = false;
+  try {
+    reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  } catch (e2) { }
   var bypass = /[?&]nointro=1/.test(location.search) ||
+    seen || reduce ||
     (hash && hash !== "about" && hash !== "home");
   if (bypass) {
     if (el.parentNode) el.parentNode.removeChild(el);

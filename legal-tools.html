@@ -6,7 +6,23 @@
 <title>法律服务工具箱｜金额计算 · 时限计算 · 常用网站｜法家人</title>
 <meta name="description" content="违约金、借款利息、诉讼费、保全费、经济补偿、工伤与人身损害赔偿、养老金、律师费、加班费的计算工具，附计算公式与现行有效的法律依据；另按领域整理常用时限、常用网站与实务文书骨架。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/tools.css?v=4">
+<link rel="canonical" href="https://fajiaren.github.io/fajia-law/legal-tools.html">
+<script>
+/* 入口守卫：本站的入口是首页。若直接用书签、历史记录或粘贴的链接打开本页，
+   而这一会话里还没有进过首页，就退回首页，避免访客一进来只看到工具箱。
+   站内点击进入、搜索引擎来源（带 referrer）都不受影响；需要直接停留本页可加 ?stay=1。*/
+(function () {
+  try {
+    var keep = /[?&]stay=1/.test(location.search);
+    var ref = document.referrer || "";
+    var fromSite = ref.indexOf(location.host) > -1;
+    var seen = sessionStorage.getItem("fj-entry");
+    sessionStorage.setItem("fj-entry", "1");
+    if (!keep && !seen && !fromSite) location.replace("index.html");
+  } catch (e) { }
+})();
+</script>
+<link rel="stylesheet" href="assets/tools.css?v=5">
 </head>
 <body>
 

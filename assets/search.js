@@ -10,7 +10,8 @@
   var _p = location.pathname;
   if (!/(^|\/)index\.html$/.test(_p) && _p !== "/" && !/\/$/.test(_p)) return;
   var IDX = window.FJ_SEARCH || { items: [], topics: [] };
-  var EN = window.FJ_EN || {};
+  /* 英译表按需加载：这里每次现取，词典晚到（idle 时载入）也能立刻生效 */
+  function ENM() { return window.FJ_EN || {}; }
   var ITEMS = IDX.items || [];
   var LABEL = {
     article: { zh: "文章", en: "Article" },
@@ -28,10 +29,11 @@
   // 把中文串翻成英文（查预生成表），用于英文检索匹配
   function toEN(s) {
     if (!s) return "";
-    if (EN[s]) return EN[s];
+    var m = ENM();
+    if (m[s]) return m[s];
     // 整句未命中时按标点切分逐段查
     return String(s).split(/[\s|·:：，,。、（）()【】\[\]—-]+/).map(function (p) {
-      return EN[p] || p;
+      return ENM()[p] || p;
     }).join(" ");
   }
   /* 检索串归一：抹掉书名号、括号、引号、标点与空白。
@@ -46,11 +48,16 @@
     return norm([it.t, it.cat, it.s, toEN(it.t), toEN(it.cat), toEN(it.s), it.ce || ""].join(" "));
   }
   // 预计算检索串（含英文），避免每次输入重算
-  ITEMS.forEach(function (it) {
-    it._h = hay(it);
-    it._n = norm(it.t);
-    it._ne = norm(toEN(it.t));
-  });
+  function buildHay() {
+    ITEMS.forEach(function (it) {
+      it._h = hay(it);
+      it._n = norm(it.t);
+      it._ne = norm(toEN(it.t));
+    });
+  }
+  buildHay();
+  /* 英译表晚到后重建检索串，让英文关键词立刻可命中 */
+  window.__fjRebuildSearch = buildHay;
 
   function normUrl(u) {
     if (!u) return "#";

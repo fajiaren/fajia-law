@@ -306,7 +306,7 @@
     }
     box.innerHTML = items.map(function (a) {
       // 书籍封面：优先用本地封面（离线也可见），否则退回数据层里的封面地址
-      var cover = (w.covers && w.covers[a.k]) || (a.k === "22eac3b0c944" ? "assets/img/book-thailand-labor.jpg" : (a.c || ""));
+      var cover = (w.covers && w.covers[a.k]) || (a.k === "22eac3b0c944" ? "assets/img/book-thailand-labor.webp" : (a.c || ""));
       var thumb = cover
         ? '<img class="wk-cover" src="' + esc(cover) + '" alt="' + esc(a.t) + ' 封面" loading="lazy">'
         : '<span class="wk-cover wk-cover-ph" aria-hidden="true">封</span>';

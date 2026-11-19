@@ -12,7 +12,16 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/theme19.css?v=20">
 <link rel="stylesheet" href="../assets/article.css?v=20">
-<script src="../assets/en-map.js?v=20" defer></script>
+<script>
+/* 英译表按需加载：中文阅读不下载这份 ~300KB 的词典；切到英文会整页重载，那时才取。*/
+(function () {
+  var en = false;
+  try {
+    en = localStorage.getItem("fj-lang") === "en" || /[?&]lang=en/.test(location.search);
+  } catch (e) { }
+  if (en) document.write('<script src="../assets/en-map.js?v=21"><\/script>');
+})();
+</script>
 <script src="../assets/i18n-data.js?v=20" defer></script>
 <script src="../assets/i18n.js?v=20" defer></script>
 </head>

@@ -1441,7 +1441,7 @@ mark { background: rgba(165, 130, 60, 0.28); color: inherit; padding: 0 2px; bor
 .hero-card::before { background: var(--clay); }
 
 /* ---------- 区块：纸纹与几何 ---------- */
-#about { position: relative; background: url("img/bg-paper.jpg") center / cover no-repeat; }
+#about { position: relative; background: url("img/bg-paper.webp") center / cover no-repeat; }
 #about::before {
   content: "";
   position: absolute; inset: 0;
@@ -1457,7 +1457,7 @@ mark { background: rgba(165, 130, 60, 0.28); color: inherit; padding: 0 2px; bor
   top: -8%; right: -12%;
   width: min(760px, 62%);
   height: 72%;
-  background: url("img/bg-geo.jpg") center / cover no-repeat;
+  background: url("img/bg-geo.webp") center / cover no-repeat;
   opacity: 0.72;
   -webkit-mask-image: radial-gradient(closest-side, #000 42%, transparent 96%);
   mask-image: radial-gradient(closest-side, #000 42%, transparent 96%);
@@ -1471,7 +1471,7 @@ mark { background: rgba(165, 130, 60, 0.28); color: inherit; padding: 0 2px; bor
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 46%;
-  background: url("img/bg-contact.jpg") center / cover no-repeat;
+  background: url("img/bg-contact.webp") center / cover no-repeat;
   opacity: 0.055;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 60%);
@@ -1715,7 +1715,7 @@ body.page-body { overflow-x: hidden; }
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background:
-    url("img/bg-hero3.jpg") center 56% / cover no-repeat,
+    url("img/bg-hero3.webp") center 56% / cover no-repeat,
     var(--paper);
 }
 .hero::before {
@@ -1875,7 +1875,7 @@ body.page-body { overflow-x: hidden; }
 .sec-about {
   background:
     linear-gradient(180deg, rgba(251, 250, 246, 0.93), rgba(251, 250, 246, 0.90)),
-    url("img/bg-paper.jpg") center / cover no-repeat;
+    url("img/bg-paper.webp") center / cover no-repeat;
 }
 .about-lead .h2 { margin-bottom: 0; }
 .about-quote {
@@ -1925,7 +1925,7 @@ body.page-body { overflow-x: hidden; }
   right: -14%;
   width: min(720px, 58%);
   height: 62%;
-  background: url("img/bg-geo.jpg") center / cover no-repeat;
+  background: url("img/bg-geo.webp") center / cover no-repeat;
   opacity: 0.6;
   -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent 96%);
   mask-image: radial-gradient(closest-side, #000 40%, transparent 96%);
@@ -1939,7 +1939,7 @@ body.page-body { overflow-x: hidden; }
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 42%;
-  background: url("img/bg-contact.jpg") center / cover no-repeat;
+  background: url("img/bg-contact.webp") center / cover no-repeat;
   opacity: 0.05;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 60%);
