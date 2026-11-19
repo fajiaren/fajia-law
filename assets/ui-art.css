@@ -1,0 +1,64 @@
+/* ============================================================
+   原创水墨插画 · 界面装饰（独立样式，不改动任何现有 CSS）
+   三张配图分别用于：关于网站 / 法律服务工具箱 / 法家人学院
+   均 AI 原创生成，无版权风险；配色沿用站点 深海军蓝 + 古铜金 + 米纸
+   ============================================================ */
+
+.ui-art {
+  margin: 0;
+  position: relative;
+  pointer-events: none;
+  user-select: none;
+}
+.ui-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line, #E6E0D1);
+  background: var(--paper, #FBFAF6);
+  box-shadow: 0 10px 30px rgba(14, 44, 40, 0.08);
+  object-fit: cover;
+}
+
+/* 01 关于网站：配图置于标题区右下方，小巧精致 */
+.ui-art-about {
+  float: right;
+  width: clamp(130px, 15vw, 200px);
+  margin: 14px 0 10px 24px;
+  transform: rotate(1.5deg);
+}
+.ui-art-about img { border-radius: 6px; }
+
+/* 03 服务与业绩：左浮动于导语区旁 */
+.ui-art-service {
+  float: right;
+  width: clamp(140px, 16vw, 220px);
+  margin: 2px 0 18px 28px;
+  transform: rotate(-1deg);
+}
+
+/* 04 学院：右对齐，稳重 */
+.ui-art-academy {
+  float: right;
+  width: clamp(150px, 17vw, 230px);
+  margin: -6px 0 20px 30px;
+  transform: rotate(1deg);
+}
+
+/* 窄屏：缩小或改为居中展示，避免挤压文字 */
+@media (max-width: 900px) {
+  .ui-art-about,
+  .ui-art-service,
+  .ui-art-academy {
+    float: none;
+    width: min(72%, 280px);
+    margin: 18px auto 22px;
+    transform: none;
+  }
+}
+@media (max-width: 560px) {
+  .ui-art-about,
+  .ui-art-service,
+  .ui-art-academy { width: 82%; }
+}

@@ -26,6 +26,14 @@ body {
   margin: 0; background: var(--paper); color: var(--ink);
   font: 15px/1.85 var(--sans); -webkit-font-smoothing: antialiased;
 }
+/* 工具箱界面背景：极淡的原创线稿（计算器 / 钢笔 / 天平 / 卷宗），固定铺底，不干扰阅读 */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url("img/bg-tools.jpg") center top / cover no-repeat;
+  opacity: .3;
+}
+.t-sec, .t-foot { position: relative; background: rgba(251, 249, 244, .84); }
+.t-sec.alt { background: rgba(246, 242, 232, .87); }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; margin: 0; }
 p { margin: 0; }
@@ -106,6 +114,20 @@ button { font: inherit; cursor: pointer; }
 }
 .t-field input:focus, .t-field select:focus { outline: 0; border-color: var(--brass); }
 .t-field .unit { margin-left: auto; flex: none; font-size: 11px; color: var(--ink-4); }
+.t-field input::placeholder { color: #B9A98A; font-size: 12.5px; }
+.t-field.is-fresh label { color: var(--warn); font-weight: 600; }
+.t-fresh { margin-top: 7px; font-size: 11.4px; line-height: 1.65; color: var(--ink-3); }
+.t-fresh b {
+  display: inline-block; font-weight: 700; color: var(--warn); letter-spacing: .02em;
+  background: #FBF0EA; border: 1px solid #E6C9BB; border-radius: 2px; padding: 1px 6px; margin-bottom: 3px;
+}
+.t-fresh span { display: block; }
+.t-miss {
+  background: #FCF1EC; border: 1px solid #E6C9BB; border-left: 3px solid var(--warn);
+  padding: 15px 18px; border-radius: 2px;
+}
+.t-miss b { display: block; font-size: 14.5px; color: var(--warn); margin-bottom: 5px; }
+.t-miss span { font-size: 12.6px; line-height: 1.85; color: var(--ink-2); }
 
 .t-out {
   margin-top: 18px; background: #FBF7EA; border: 1px solid var(--line); border-left: 3px solid var(--brass);
@@ -177,6 +199,24 @@ button { font: inherit; cursor: pointer; }
 .t-note { margin-top: 22px; padding: 14px 18px; font-size: 12.4px; line-height: 1.95; color: var(--ink-3); border-left: 2px solid var(--line-2); background: #fff; }
 .t-note b { color: var(--warn); }
 
+/* ---------- 常见时限速查 ---------- */
+.t-limits { display: grid; gap: 12px; }
+.t-limit-grp { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.t-limit-head { display: flex; align-items: center; gap: 12px; padding: 14px 20px; cursor: pointer; user-select: none; }
+.t-limit-head:hover { background: rgba(217, 190, 121, .07); }
+.t-limit-head h3 { margin: 0; font-size: 15.5px; font-weight: 700; letter-spacing: .02em; color: var(--navy); }
+.t-limit-count { margin-left: auto; font-size: 11px; color: var(--brass); font-family: var(--mono); letter-spacing: .06em; }
+.t-limit-grp .arrow { width: 18px; height: 18px; color: var(--brass); transition: transform .25s ease; flex: none; }
+.t-limit-grp.is-open .arrow { transform: rotate(180deg); }
+.t-limit-body { display: none; padding: 2px 20px 16px; }
+.t-limit-grp.is-open .t-limit-body { display: block; }
+.t-limit-body dl { margin: 0; }
+.t-limit-item { padding: 12px 0; border-top: 1px dashed var(--line); }
+.t-limit-item:first-child { border-top: none; }
+.t-limit-item dt { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.t-limit-item dd { margin: 0; font-size: 13px; line-height: 1.75; color: var(--ink-3); }
+.t-limit-item dd i { display: block; margin-top: 5px; font-style: normal; font-size: 11.5px; color: var(--brass); opacity: .85; }
+
 /* 页脚 */
 .t-foot { border-top: 1px solid var(--line); padding: 32px 0 44px; }
 .t-foot p { font-size: 12.4px; color: var(--ink-3); line-height: 1.9; }
@@ -198,6 +238,9 @@ button { font: inherit; cursor: pointer; }
   .t-mini-card .t-fields { grid-template-columns: 1fr; }
   .t-out-row b { font-size: 15px; }
   .t-out-row b.big { font-size: 19px; }
+  .t-limit-head { padding: 12px 14px; }
+  .t-limit-body { padding: 2px 14px 14px; }
+  .t-limit-item dd { font-size: 12.5px; }
 }
 @media print {
   .t-top, .t-hero-tabs, .t-foot { display: none !important; }

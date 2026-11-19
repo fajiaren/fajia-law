@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>法律服务工具箱｜金额计算 · 法规与官网直达｜法家人</title>
-<meta name="description" content="违约金、借款利息、诉讼费、保全费、经济补偿、工伤与人身损害赔偿、养老金、律师费、加班费的计算工具，附计算公式与现行有效的法律依据；另设权威官网直达与实务文书骨架。">
+<title>法律服务工具箱｜金额计算 · 时限计算 · 常用网站｜法家人</title>
+<meta name="description" content="违约金、借款利息、诉讼费、保全费、经济补偿、工伤与人身损害赔偿、养老金、律师费、加班费的计算工具，附计算公式与现行有效的法律依据；另按领域整理常用时限、常用网站与实务文书骨架。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/tools.css?v=3">
+<link rel="stylesheet" href="assets/tools.css?v=4">
 </head>
 <body>
 
@@ -28,12 +28,12 @@
     <p class="t-lede">
       争议里最先被问到的往往不是法理，而是数额：能主张多少、要交多少费、判下来大概是多少。
       这一页把常用的十几项金额算法摊开——每一项都写明<b style="color:#D9BE79">计算公式</b>、<b style="color:#D9BE79">现行依据</b>（法规与司法解释名称、条款）与<b style="color:#D9BE79">实务指引</b>，
-      另附权威官网直达与常用文书骨架。全部免费，不需要注册。
+      另按领域整理常用时限、常用网站与常用文书。全部免费，不需要注册。
     </p>
     <div class="t-hero-tabs">
       <button class="t-hero-tab is-on" type="button" data-jump="#calc">金额计算</button>
-      <button class="t-hero-tab" type="button" data-jump="#links">法规与官网直达</button>
-      <button class="t-hero-tab" type="button" data-jump="#practical">期间与文书</button>
+      <button class="t-hero-tab" type="button" data-jump="#practical">时限计算</button>
+      <button class="t-hero-tab" type="button" data-jump="#links">常用网站</button>
       <button class="t-hero-tab" type="button" data-jump="#limits">使用说明</button>
     </div>
   </div>
@@ -50,9 +50,25 @@
   </div>
 </section>
 
-<section class="t-sec alt" id="links">
+<section class="t-sec alt" id="practical">
   <div class="t-wrap">
-    <div class="t-head"><h2>法规与官网直达</h2><span>按用途分类 · 均为官方站点</span></div>
+    <div class="t-head"><h2>时限计算</h2><span>输入即算 · 按领域速查</span></div>
+    <p class="t-sub">打官司输在期限上的案子，比输在道理上的多。先算清日子，再动笔。</p>
+    <div class="t-mini" id="mini-box"></div>
+
+    <div class="t-head" style="margin-top:44px"><h2 style="font-size:20px">常见时限速查</h2><span>按领域分类 · 点组名展开</span></div>
+    <p class="t-sub">覆盖司法、商业、人力、涉外四类常见期限。期限自起始日的次日起算，届满日遇法定休假日顺延至休假日后第一日。</p>
+    <div class="t-limits" id="limit-box"></div>
+
+    <div class="t-head" style="margin-top:44px"><h2 style="font-size:20px">常用文书</h2><span>可复制 · 可打印</span></div>
+    <p class="t-sub">骨架只给结构，事实与请求要自己填。写之前先想清楚：要什么、凭什么、证据在哪。</p>
+    <div id="doc-box"></div>
+  </div>
+</section>
+
+<section class="t-sec" id="links">
+  <div class="t-wrap">
+    <div class="t-head"><h2>常用网站</h2><span>按用途分类 · 均为官方站点</span></div>
     <p class="t-sub">
       查法条、查案例、查企业、查执行，各有各的官方入口。下面按「要查什么」分类，直接点开即可；
       第三方转载站一律不收，避免拿到过期文本。
@@ -62,18 +78,6 @@
       <b>提示</b>　政府网站域名与栏目偶有调整。若某个链接打不开，可在该站首页检索栏目名，或用站内的「搜索」定位。
       裁判文书网、庭审公开网在部分时段需要登录或验证码，这是平台规则，不是链接失效。
     </p>
-  </div>
-</section>
-
-<section class="t-sec" id="practical">
-  <div class="t-wrap">
-    <div class="t-head"><h2>期间与文书</h2><span>算日子 · 抄骨架</span></div>
-    <p class="t-sub">打官司输在期限上的案子，比输在道理上的多。先算清日子，再动笔。</p>
-    <div class="t-mini" id="mini-box"></div>
-
-    <div class="t-head" style="margin-top:44px"><h2 style="font-size:20px">常用文书骨架</h2><span>可复制 · 可打印</span></div>
-    <p class="t-sub">骨架只给结构，事实与请求要自己填。写之前先想清楚：要什么、凭什么、证据在哪。</p>
-    <div id="doc-box"></div>
   </div>
 </section>
 
@@ -120,6 +124,6 @@
   </div>
 </footer>
 
-<script src="assets/legal-tools.js?v=3"></script>
+<script src="assets/legal-tools.js?v=4"></script>
 </body>
 </html>

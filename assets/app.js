@@ -305,8 +305,14 @@
       return;
     }
     box.innerHTML = items.map(function (a) {
-      return '<a class="work-card" href="' + esc(urlOf(a)) + '">' +
+      // 书籍封面：优先用本地封面（离线也可见），否则退回数据层里的封面地址
+      var cover = (w.covers && w.covers[a.k]) || (a.k === "22eac3b0c944" ? "assets/img/book-thailand-labor.jpg" : (a.c || ""));
+      var thumb = cover
+        ? '<img class="wk-cover" src="' + esc(cover) + '" alt="' + esc(a.t) + ' 封面" loading="lazy">'
+        : '<span class="wk-cover wk-cover-ph" aria-hidden="true">封</span>';
+      return '<a class="work-card has-cover" href="' + esc(urlOf(a)) + '">' +
         '<span class="wk-n">' + esc(w.code || "SL") + "-" + no3(a.ns[w.albumId]) + "</span>" +
+        thumb +
         '<div class="wk-main"><b>' + esc(a.t) + "</b>" +
         "<i>" + esc(a.tpl || "实务论著") + " · " + esc(a.d || "") + " · 阅读 " + (a.r || 0) + "</i></div>" +
         '<span class="wk-go" aria-hidden="true">' +
