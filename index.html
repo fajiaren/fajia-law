@@ -52,7 +52,7 @@
   function load() {
     if (window.FJ_EN) return;
     var s = document.createElement("script");
-    s.src = "assets/en-map.js?v=21";
+    s.src = "assets/en-map.js?v=20261122";
     s.async = true;
     s.onload = function () {
       if (window.__fjSetEN) window.__fjSetEN(window.FJ_EN);
@@ -61,7 +61,7 @@
     document.head.appendChild(s);
   }
   window.fjLoadEN = load;
-  if (en) document.write('<script src="assets/en-map.js?v=21"><\/script>');
+  if (en) document.write('<script src="assets/en-map.js?v=20261122"><\/script>');
   else if ("requestIdleCallback" in window) requestIdleCallback(load, { timeout: 3200 });
   else window.addEventListener("load", function () { setTimeout(load, 2000); });
 })();
@@ -568,7 +568,7 @@
 
           <div class="blk-head">
             <h3>职业成就</h3>
-            <span>实务论著 · 荣誉奖项</span>
+            <span>实务论著 · 社会荣誉</span>
             <i class="line" aria-hidden="true"></i>
           </div>
 
@@ -578,7 +578,7 @@
               <div id="work-list"></div>
             </div>
             <div class="ach-col">
-              <h4>荣誉奖项 <span id="honor-n">—</span></h4>
+              <h4>社会荣誉 <span id="honor-n">—</span></h4>
               <div id="honor-list"></div>
             </div>
           </div>
@@ -663,49 +663,15 @@
               <h3 class="about-sub">王天豪 · 中国执业律师</h3>
               <div class="prose">
                 <p>
-                  中国执业律师、企业合规师，执业于<strong>广东华商（杭州）律师事务所</strong>，兼任汉成泰国律师事务所高级法律顾问。西北政法大学民商法学与法律英语双学士。
+                  中国执业律师，拥有民商法学与法律英语双学位，<strong>工作语言为中文与英文。</strong>
                 </p>
                 <p>
-                  主攻企业商事与劳动人事，长期做涉外：交易风控、投资尽调、合同与劳动争议。曾为停摆项目设计纾困方案，为赴泰国、印度及中国香港的并购提供尽调，并主导外资工厂千人裁员项目。
+                  主攻企业商事与劳动人事，长期在国内外从事国际贸易风控、跨境投融资与涉外劳动用工顾问。
                 </p>
                 <p>
-                  自 2017 年起持续参与公益法律服务，现为杭州市党群服务中心驻点公益律师、「法小愿」公益法律服务团队发起人。<strong>工作语言为中文与英文</strong>。
+                  曾为停摆项目设计纾困方案，为赴中国香港、泰国、印度等多地的涉外投融资项目提供文本起草与尽调交割服务，并主导过海外中资与国内外资工厂逾万人的产能搬迁/规模裁员项目。
                 </p>
               </div>
-
-              <h3 class="about-sub" style="margin-top:clamp(26px,3.4vw,40px)">工作经历</h3>
-              <ul class="tl">
-                <li>
-                  <span class="tl-when">2025.02 — 至今</span>
-                  <p class="tl-what">专职律师 · 青年律师活动部部长</p>
-                  <p class="tl-where">广东华商（杭州）律师事务所 · 杭州</p>
-                  <p class="tl-note">主办企业商事与劳动人事争议，牵头重大项目的法律方案设计与谈判；统筹青年律师的专业培训、业务研讨与公益普法。</p>
-                </li>
-                <li>
-                  <span class="tl-when">2022.08 — 2025.01</span>
-                  <p class="tl-what">专职律师 · 国际业务部</p>
-                  <p class="tl-where">北京炜衡（杭州）律师事务所 · 杭州</p>
-                  <p class="tl-note">承办跨境投资、涉外争议与外资企业重组项目，作为合规负责人参与千人规模搬迁裁员方案的设计与落地。</p>
-                </li>
-                <li>
-                  <span class="tl-when">2017.03 — 2022.07</span>
-                  <p class="tl-what">法律援助员</p>
-                  <p class="tl-where">西北政法大学法律服务中心 · 西安</p>
-                  <p class="tl-note">负责法律援助窗口接待、咨询答复与诉讼文书代拟，主办援助案件数十件，覆盖劳动、婚姻家事与人身损害。</p>
-                </li>
-                <li>
-                  <span class="tl-when">2017.10 — 2019.03</span>
-                  <p class="tl-what">社区司法援助员</p>
-                  <p class="tl-where">西安市新城区司法局法律援助中心 · 西安</p>
-                  <p class="tl-note">面向社区提供法律咨询与纠纷调处，参与社区矫正对象的月度法治教育，协助司法所完成矛盾排查与化解。</p>
-                </li>
-                <li>
-                  <span class="tl-when">2017.03 — 2019.07</span>
-                  <p class="tl-what">立案庭特邀调解员</p>
-                  <p class="tl-where">陕西省西安市长安区人民法院 · 西安</p>
-                  <p class="tl-note">承担立案引导、诉前调解与司法确认衔接，年均参与调解案件逾百件，熟悉一审立案与多元解纷的实际口径。</p>
-                </li>
-              </ul>
 
               <h3 class="about-sub" style="margin-top:clamp(26px,3.4vw,40px)">法律课程</h3>
               <ul class="course-list">
